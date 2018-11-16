@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9857AC36219D9692005E0899 /* boat_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC2D219D9692005E0899 /* boat_1.png */; };
+		9857AC37219D9692005E0899 /* boat_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC2E219D9692005E0899 /* boat_2.png */; };
+		9857AC38219D9692005E0899 /* boat_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC2F219D9692005E0899 /* boat_3.png */; };
+		9857AC39219D9692005E0899 /* boat_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC30219D9692005E0899 /* boat_4.png */; };
+		9857AC3A219D9692005E0899 /* boat_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC31219D9692005E0899 /* boat_5.png */; };
+		9857AC3B219D9692005E0899 /* boat_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC32219D9692005E0899 /* boat_6.png */; };
+		9857AC3C219D9692005E0899 /* boat_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC33219D9692005E0899 /* boat_7.png */; };
+		9857AC3D219D9692005E0899 /* boat_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC34219D9692005E0899 /* boat_8.png */; };
+		9857AC3E219D9692005E0899 /* boat_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC35219D9692005E0899 /* boat_9.png */; };
 		9890458E21945838005A974A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890458D21945838005A974A /* AppDelegate.swift */; };
 		9890459021945838005A974A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9890458F21945838005A974A /* ViewController.swift */; };
 		9890459321945838005A974A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9890459121945838005A974A /* Main.storyboard */; };
@@ -34,6 +43,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9857AC2D219D9692005E0899 /* boat_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_1.png; path = ../Graphics/boat_1.png; sourceTree = "<group>"; };
+		9857AC2E219D9692005E0899 /* boat_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_2.png; path = ../Graphics/boat_2.png; sourceTree = "<group>"; };
+		9857AC2F219D9692005E0899 /* boat_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_3.png; path = ../Graphics/boat_3.png; sourceTree = "<group>"; };
+		9857AC30219D9692005E0899 /* boat_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_4.png; path = ../Graphics/boat_4.png; sourceTree = "<group>"; };
+		9857AC31219D9692005E0899 /* boat_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_5.png; path = ../Graphics/boat_5.png; sourceTree = "<group>"; };
+		9857AC32219D9692005E0899 /* boat_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_6.png; path = ../Graphics/boat_6.png; sourceTree = "<group>"; };
+		9857AC33219D9692005E0899 /* boat_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_7.png; path = ../Graphics/boat_7.png; sourceTree = "<group>"; };
+		9857AC34219D9692005E0899 /* boat_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_8.png; path = ../Graphics/boat_8.png; sourceTree = "<group>"; };
+		9857AC35219D9692005E0899 /* boat_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_9.png; path = ../Graphics/boat_9.png; sourceTree = "<group>"; };
 		9890458A21945837005A974A /* 14154692_MBCoursework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 14154692_MBCoursework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9890458D21945838005A974A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9890458F21945838005A974A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +115,15 @@
 		9890458C21945837005A974A /* 14154692_MBCoursework */ = {
 			isa = PBXGroup;
 			children = (
+				9857AC2D219D9692005E0899 /* boat_1.png */,
+				9857AC2E219D9692005E0899 /* boat_2.png */,
+				9857AC2F219D9692005E0899 /* boat_3.png */,
+				9857AC30219D9692005E0899 /* boat_4.png */,
+				9857AC31219D9692005E0899 /* boat_5.png */,
+				9857AC32219D9692005E0899 /* boat_6.png */,
+				9857AC33219D9692005E0899 /* boat_7.png */,
+				9857AC34219D9692005E0899 /* boat_8.png */,
+				9857AC35219D9692005E0899 /* boat_9.png */,
 				9890458D21945838005A974A /* AppDelegate.swift */,
 				9890458F21945838005A974A /* ViewController.swift */,
 				9890459121945838005A974A /* Main.storyboard */,
@@ -232,9 +259,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9857AC3D219D9692005E0899 /* boat_8.png in Resources */,
+				9857AC39219D9692005E0899 /* boat_4.png in Resources */,
+				9857AC37219D9692005E0899 /* boat_2.png in Resources */,
+				9857AC3B219D9692005E0899 /* boat_6.png in Resources */,
 				9890459821945838005A974A /* LaunchScreen.storyboard in Resources */,
 				9890459521945838005A974A /* Assets.xcassets in Resources */,
+				9857AC3C219D9692005E0899 /* boat_7.png in Resources */,
 				9890459321945838005A974A /* Main.storyboard in Resources */,
+				9857AC36219D9692005E0899 /* boat_1.png in Resources */,
+				9857AC38219D9692005E0899 /* boat_3.png in Resources */,
+				9857AC3A219D9692005E0899 /* boat_5.png in Resources */,
+				9857AC3E219D9692005E0899 /* boat_9.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +543,7 @@
 				989045B421945838005A974A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		989045B521945838005A974A /* Build configuration list for PBXNativeTarget "14154692_MBCourseworkTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +552,7 @@
 				989045B721945838005A974A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		989045B821945838005A974A /* Build configuration list for PBXNativeTarget "14154692_MBCourseworkUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +561,7 @@
 				989045BA21945838005A974A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
