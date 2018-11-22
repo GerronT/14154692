@@ -9,12 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var dynamicAnimator: UIDynamicAnimator!
+    var dynamicItemBehavior: UIDynamicItemBehavior!
+    var collisionBehavior: UICollisionBehavior!
+    
+    var backgroundImage: UIImageView!
     @IBOutlet weak var boatImage: UIImageView!
+    @IBOutlet weak var rock: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        // Do any additional setup after loading the view, typically from a nib.
+        self.backgroundImage = UIImageView(image: UIImage(named: "Background.jpeg"))
+        self.backgroundImage.contentMode = .scaleAspectFill
+        self.view.insertSubview(self.backgroundImage, at: 0)
         
         //Animation of walking
         var imageArray: [UIImage]!
@@ -30,6 +38,23 @@ class ViewController: UIViewController {
                       UIImage(named: "boat_9.png")!]
         
         boatImage.image = UIImage.animatedImage(with: imageArray, duration: 1)
+        
+        dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+        
+        dynamicItemBehavior = UIDynamicItemBehavior(items: [rock])
+        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -50, y: 0), for: rock)
+        dynamicAnimator.addBehavior(dynamicItemBehavior)
+
+        //collisionBehavior = UICollisionBehavior(items: [boatImage, rock])
+        //collisionBehavior.setTranslatesReferenceBoundsIntoBoundary(with: UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0))
+        //dynamicAnimator.addBehavior(collisionBehavior)
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.backgroundImage.frame = self.view.bounds
     }
     
     
