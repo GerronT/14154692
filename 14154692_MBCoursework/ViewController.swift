@@ -8,23 +8,37 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol subviewDelegate {
+    func changeSomething()
+    
+    
+    
+}
+class ViewController: UIViewController, subviewDelegate {
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
     var collisionBehavior: UICollisionBehavior!
     
     var backgroundImage: UIImageView!
-    @IBOutlet weak var boatImage: UIImageView!
+    @IBOutlet weak var boatImage: DraggedImageView!
     @IBOutlet weak var rock: UIImageView!
+    @IBOutlet weak var bounds: UILabel!
+    
+    func changeSomething() {
+        bounds.text = "Bounds: " + CGRect(origin: CGPoint(x: boatImage.center.x, y: boatImage.center.y), size: boatImage.bounds.size).debugDescription
+        collisionBehavior.removeAllBoundaries()
+        collisionBehavior.addBoundary(withIdentifier: "boatRockCollisionPoint" as NSString, for: UIBezierPath(rect: CGRect(origin: CGPoint(x: boatImage.center.x, y: boatImage.center.y), size: boatImage.bounds.size)))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        boatImage.myDelegate = self
         // Do any additional setup after loading the view, typically from a nib.
         self.backgroundImage = UIImageView(image: UIImage(named: "Background.jpeg"))
         self.backgroundImage.contentMode = .scaleAspectFill
         self.view.insertSubview(self.backgroundImage, at: 0)
         
-        //Animation of walking
+        //Boat Animation
         var imageArray: [UIImage]!
         
         imageArray = [UIImage(named: "boat_1.png")!,
@@ -36,7 +50,7 @@ class ViewController: UIViewController {
                       UIImage(named: "boat_7.png")!,
                       UIImage(named: "boat_8.png")!,
                       UIImage(named: "boat_9.png")!]
-        
+       
         boatImage.image = UIImage.animatedImage(with: imageArray, duration: 1)
         
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
@@ -45,9 +59,10 @@ class ViewController: UIViewController {
         self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -50, y: 0), for: rock)
         dynamicAnimator.addBehavior(dynamicItemBehavior)
 
-        //collisionBehavior = UICollisionBehavior(items: [boatImage, rock])
-        //collisionBehavior.setTranslatesReferenceBoundsIntoBoundary(with: UIEdgeInsets(top: 0,left: 0,bottom: 0,right: 0))
-        //dynamicAnimator.addBehavior(collisionBehavior)
+        collisionBehavior = UICollisionBehavior(items: [rock])
+        // boatImage.center.x
+        collisionBehavior.translatesReferenceBoundsIntoBoundary = true
+        dynamicAnimator.addBehavior(collisionBehavior)
         
     }
     
