@@ -28,7 +28,7 @@ class DraggedImageView: UIImageView {
         
         self.center = CGPoint(x: self.center.x+dx, y: self.center.y+dy)
         
-        self.myDelegate?.changeSomething()
+        self.myDelegate?.boatDragged()
     }
     
     //func getLocationPoints() -> UIEdgeInsets {

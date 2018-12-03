@@ -9,7 +9,7 @@
 import UIKit
 
 protocol subviewDelegate {
-    func changeSomething()
+    func boatDragged()
     
     
     
@@ -18,20 +18,34 @@ class ViewController: UIViewController, subviewDelegate {
     var dynamicAnimator: UIDynamicAnimator!
     var dynamicItemBehavior: UIDynamicItemBehavior!
     var collisionBehavior: UICollisionBehavior!
+    var scoreTimer: Timer!
+    var gameTimer: Timer!
     
     var backgroundImage: UIImageView!
     @IBOutlet weak var boatImage: DraggedImageView!
     @IBOutlet weak var rock: UIImageView!
-    @IBOutlet weak var bounds: UILabel!
+    @IBOutlet weak var score: UILabel!
     
-    func changeSomething() {
-        bounds.text = "Bounds: " + CGRect(origin: CGPoint(x: boatImage.center.x, y: boatImage.center.y), size: boatImage.bounds.size).debugDescription
+    var boatUpdatedBounds: CGRect!
+    var scoreValue: Int!
+    
+    func boatDragged() {
         collisionBehavior.removeAllBoundaries()
-        collisionBehavior.addBoundary(withIdentifier: "boatRockCollisionPoint" as NSString, for: UIBezierPath(rect: CGRect(origin: CGPoint(x: boatImage.center.x, y: boatImage.center.y), size: boatImage.bounds.size)))
+        boatUpdatedBounds = CGRect(origin: CGPoint(x: boatImage.center.x - (boatImage.bounds.width/2), y: boatImage.center.y - (boatImage.bounds.height/2)), size: boatImage.bounds.size)
+        collisionBehavior.addBoundary(withIdentifier: "boatRockCollisionPoint" as NSString, for: UIBezierPath(rect: boatUpdatedBounds))
+        
+        if (boatCollides()) {
+            scoreValue = scoreValue - 9402
+            rock.removeFromSuperview()
+            rock = nil
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scoreValue = 0
+        scoreTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.updateScore), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(ViewController.finishGame), userInfo: nil, repeats: true)
         boatImage.myDelegate = self
         // Do any additional setup after loading the view, typically from a nib.
         self.backgroundImage = UIImageView(image: UIImage(named: "Background.jpeg"))
@@ -60,11 +74,29 @@ class ViewController: UIViewController, subviewDelegate {
         dynamicAnimator.addBehavior(dynamicItemBehavior)
 
         collisionBehavior = UICollisionBehavior(items: [rock])
-        // boatImage.center.x
         collisionBehavior.translatesReferenceBoundsIntoBoundary = true
         dynamicAnimator.addBehavior(collisionBehavior)
-        
     }
+    
+    func boatCollides() -> Bool {
+        if (rock != nil && boatUpdatedBounds.intersects(CGRect(origin: CGPoint(x: rock.center.x - (rock.bounds.size.width/2), y: rock.center.y - (rock.bounds.size.height/2)), size: rock.bounds.size))) {
+            return true
+        }
+        return false
+    }
+    
+    func updateScore() {
+        // fired once a second
+        scoreValue = scoreValue + 73
+        score.text = String(scoreValue)
+    }
+    
+    func finishGame() {
+        scoreTimer.invalidate()
+        score.text = "Final Score: " + score.text!
+        gameTimer.invalidate()
+    }
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
