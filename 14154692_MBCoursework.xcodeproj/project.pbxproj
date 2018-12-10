@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		98037FFB21B9A30A00910552 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 98037FFA21B9A30A00910552 /* coin.png */; };
 		98127EC721BDA0B80017396E /* GameOverScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98127EC621BDA0B80017396E /* GameOverScreen.xib */; };
+		98127EC921BDD9F90017396E /* ViewControllerGO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127EC821BDD9F90017396E /* ViewControllerGO.swift */; };
 		983DBF4C219F08EF0010CDEE /* Background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 983DBF4B219F08EF0010CDEE /* Background.jpeg */; };
 		983DBF4E219F0CAE0010CDEE /* DraggedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DBF4D219F0CAE0010CDEE /* DraggedImageView.swift */; };
 		9857AC36219D9692005E0899 /* boat_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC2D219D9692005E0899 /* boat_1.png */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		98037FFA21B9A30A00910552 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = Graphics/coin.png; sourceTree = SOURCE_ROOT; };
 		98127EC621BDA0B80017396E /* GameOverScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameOverScreen.xib; sourceTree = "<group>"; };
+		98127EC821BDD9F90017396E /* ViewControllerGO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerGO.swift; sourceTree = "<group>"; };
 		983DBF4B219F08EF0010CDEE /* Background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Background.jpeg; path = Graphics/Background.jpeg; sourceTree = SOURCE_ROOT; };
 		983DBF4D219F0CAE0010CDEE /* DraggedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggedImageView.swift; sourceTree = "<group>"; };
 		9857AC2D219D9692005E0899 /* boat_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_1.png; path = ../Graphics/boat_1.png; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				9890459621945838005A974A /* LaunchScreen.storyboard */,
 				9890459921945838005A974A /* Info.plist */,
 				98127EC621BDA0B80017396E /* GameOverScreen.xib */,
+				98127EC821BDD9F90017396E /* ViewControllerGO.swift */,
 			);
 			path = 14154692_MBCoursework;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			files = (
 				9890459021945838005A974A /* ViewController.swift in Sources */,
 				983DBF4E219F0CAE0010CDEE /* DraggedImageView.swift in Sources */,
+				98127EC921BDD9F90017396E /* ViewControllerGO.swift in Sources */,
 				9890458E21945838005A974A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -27,7 +27,6 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     var coinsArray: [UIImageView]!
     var boatUpdatedBounds: CGRect!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -39,7 +38,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         // Initializes the timer for the entire game (Finishes after 20 seconds)
         gameTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(ViewController.finishGame), userInfo: nil, repeats: true)
         
-        objectAdder = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(ViewController.graduallyAddMoreObjects), userInfo: nil, repeats: true)
+        objectAdder = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.graduallyAddMoreObjects), userInfo: nil, repeats: true)
     }
     
     // ------------------------- INITIALISE METHODS -------------------------------//
@@ -49,14 +48,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         let seaView = UIImageView(image: UIImage(named: "Background.jpeg"))
         seaView.frame = UIScreen.main.bounds
         self.view.addSubview(seaView)
-        
-        //animation(viewAnimation: seaView, duration: 20)
-    }
-    
-    private func animation(viewAnimation: UIView, duration: TimeInterval) {
-        UIView.animate(withDuration: duration, animations: {
-            viewAnimation.frame.origin.x = -viewAnimation.frame.width
-        })
+        //animateHorizontally(viewAnimation: seaView, duration: 20)
     }
     
     func initialiseScores() {
@@ -101,7 +93,6 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     func initialiseObsAndCoins() {
         // Initialise Obstacle Array
         obstacleArray = []
-        
         // Initialise Coins Array
         coinsArray = []
         
@@ -121,6 +112,13 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     
     // ------------------------- Helper Methods -------------------------------//
     
+    // Move view horizontally
+    func animateHorizontally(viewAnimation: UIView, duration: TimeInterval) {
+        UIView.animate(withDuration: duration, animations: {
+            viewAnimation.frame.origin.x = -viewAnimation.frame.width
+        })
+    }
+    
     // Create x number of coins
     func addCoin() {
         let screenSize = UIScreen.main.bounds
@@ -134,7 +132,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         self.view.addSubview(coin)
         
         dynamicItemBehavior.addItem(coin)
-        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -75, y: 0), for: coin)
+        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: coin)
         collisionBehavior.addItem(coin)
         
     }
@@ -152,7 +150,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         self.view.addSubview(obstacle)
         
         dynamicItemBehavior.addItem(obstacle)
-        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -75, y: 0), for: obstacle)
+        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: obstacle)
         collisionBehavior.addItem(obstacle)
     }
     
@@ -168,15 +166,17 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     
     // ------------------------- Automatically Called Methods ------------------------//
     
-    // Updates Boat Boundaries upon dragging
+    // Updates Boat Boundaries upon dragging (uses Delegation from DraggedImageView)
     func boatDragged() {
         collisionBehavior.removeAllBoundaries()
         boatUpdatedBounds = getUpdatedObjectBoundary(object: boat)
         collisionBehavior.addBoundary(withIdentifier: "boatRockCollisionPoint" as NSString, for: UIBezierPath(rect: boatUpdatedBounds))
     }
-    //
+    
+    // Adds coins and obstacles randomly every second (uses Timer)
     func graduallyAddMoreObjects() {
         let num = arc4random_uniform(_:3)
+        // will sometimes add coin, sometimes add obstacle, sometimes add both, sometimes add none
         if num == 0 {
             addCoin()
         } else if num == 1 {
@@ -187,12 +187,12 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         }
     }
     
-    // Updates the score every 0.01 seconds.
+    // Updates the score every 0.01 seconds. (uses Timer)
     func updateScore() {
         score.text = String(Int(score.text!)! + 73)
     }
     
-    // Stops the game after 20 seconds and finalises the score.
+    // Stops the game after 20 seconds and finalises the score. (uses Timer)
     func finishGame() {
         scoreTimer.invalidate()
         gameTimer.invalidate()
@@ -201,39 +201,59 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         callGameOverScreen()
     }
     
+    // Triggers a segue to switch to game over scene
     func callGameOverScreen() {
-        // Create score label
-        // let gameOverScreen = self.storyboard?.instantiateViewController(withIdentifier: "GameOver")
-        //let scoreGO = UILabel()
-        //scoreGO.text = "Score: " + score.text!
-        //scoreGO.frame = CGRect(x:80, y: 80, width: 100, height: 50)
-        //gameOverScreen?.view.addSubview(scoreGO)
-        //performSegue(withIdentifier: "GameOver", sender: self)
+        // BRING UP GAMEOVER SCREEN
+        let gameOver = UIImageView()
+        gameOver.frame = UIScreen.main.bounds
+        gameOver.backgroundColor = UIColor.darkGray
         
-        //ADD REPLAY
+        let gameOverLabel = UILabel()
+        gameOverLabel.frame = CGRect(x: 300, y: 50, width: 300, height: 200)
+        gameOverLabel.text = "GAME OVER"
+        gameOverLabel.textColor = UIColor.white
         
+        let scoreGO = UILabel()
+        scoreGO.frame = CGRect(x: 300, y:162, width:200, height:50)
+        scoreGO.text = "Final Score: " + score.text!
+        scoreGO.textColor = UIColor.white
+        
+        let replayBtn = UIButton(frame: CGRect(x: 350, y: 200, width: 100, height: 50))
+        replayBtn.backgroundColor = .green
+        replayBtn.setTitle("Replay", for: .normal)
+        replayBtn.addTarget(self, action: #selector(viewDidLoad), for: .touchUpInside)
+        
+        self.view.addSubview(gameOver)
+        self.view.addSubview(gameOverLabel)
+        self.view.addSubview(scoreGO)
+        self.view.addSubview(replayBtn)
+        
+        // SHOW FINAL SCORE
+        // ADD REPLAY
     }
     
-    // Triggered by boat collision on objects
+    // Triggered by boat colliding with objects
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
         let deductScore = 940 // can change
         let increaseScore = 1200 // can change
         let itemObject = item as! UIImageView
         
-        // deduct score if boat has collided with an obstacle
-        if obstacleArray.contains(itemObject) {
-            if Int(score.text!)! > deductScore {
-                score.text = String(Int(score.text!)! - deductScore)
+        if identifier.unsafelyUnwrapped as! String == "boatRockCollisionPoint" {
+            // deduct score if boat has collided with an obstacle
+            if obstacleArray.contains(itemObject) {
+                if Int(score.text!)! > deductScore {
+                    score.text = String(Int(score.text!)! - deductScore)
+                }
+                // Change color of avatar
+                boat.tintColor = UIColor.red
             }
-            // Change color of avatar
-            boat.tintColor = UIColor.red
-        }
         
-        // increase score if the boat has collided with a coin
-        if coinsArray.contains(itemObject) {
-            score.text = String(Int(score.text!)! + increaseScore)
-            (item as! UIImageView).image = nil
-            coinsArray.remove(at: coinsArray.index(of: item as! UIImageView)!)
+            // increase score if the boat has collided with a coin
+            if coinsArray.contains(itemObject) {
+                score.text = String(Int(score.text!)! + increaseScore)
+                (item as! UIImageView).image = nil
+                coinsArray.remove(at: coinsArray.index(of: item as! UIImageView)!)
+            }
         }
         
     }
@@ -243,7 +263,6 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
-    
     
 
     override func didReceiveMemoryWarning() {
