@@ -8,10 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		98037FFB21B9A30A00910552 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 98037FFA21B9A30A00910552 /* coin.png */; };
+		980911D321BF0CA700088B91 /* underwaterBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 980911D221BF0CA700088B91 /* underwaterBack.png */; };
 		98127EC721BDA0B80017396E /* GameOverScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 98127EC621BDA0B80017396E /* GameOverScreen.xib */; };
 		98127EC921BDD9F90017396E /* ViewControllerGO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98127EC821BDD9F90017396E /* ViewControllerGO.swift */; };
 		983DBF4C219F08EF0010CDEE /* Background.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 983DBF4B219F08EF0010CDEE /* Background.jpeg */; };
 		983DBF4E219F0CAE0010CDEE /* DraggedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983DBF4D219F0CAE0010CDEE /* DraggedImageView.swift */; };
+		9855FFB221BE8DCD0068A435 /* bigStone1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFA021BE8DCD0068A435 /* bigStone1.png */; };
+		9855FFB321BE8DCD0068A435 /* bigStone2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFA121BE8DCD0068A435 /* bigStone2.png */; };
+		9855FFB421BE8DCD0068A435 /* bWeed1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFA221BE8DCD0068A435 /* bWeed1.png */; };
+		9855FFB521BE8DCD0068A435 /* bWeed2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFA321BE8DCD0068A435 /* bWeed2.png */; };
+		9855FFB621BE8DCD0068A435 /* bWeed3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFA421BE8DCD0068A435 /* bWeed3.png */; };
+		9855FFB721BE8DCD0068A435 /* coral1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFA521BE8DCD0068A435 /* coral1.png */; };
+		9855FFB821BE8DCD0068A435 /* coral2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFA621BE8DCD0068A435 /* coral2.png */; };
+		9855FFB921BE8DCD0068A435 /* crab1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFA721BE8DCD0068A435 /* crab1.png */; };
+		9855FFBA21BE8DCD0068A435 /* crab2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFA821BE8DCD0068A435 /* crab2.png */; };
+		9855FFBB21BE8DCD0068A435 /* seaback.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFA921BE8DCD0068A435 /* seaback.png */; };
+		9855FFBC21BE8DCD0068A435 /* seafloor.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFAA21BE8DCD0068A435 /* seafloor.png */; };
+		9855FFBD21BE8DCD0068A435 /* stone1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFAB21BE8DCD0068A435 /* stone1.png */; };
+		9855FFBE21BE8DCD0068A435 /* stone2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFAC21BE8DCD0068A435 /* stone2.png */; };
+		9855FFBF21BE8DCD0068A435 /* stone3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFAD21BE8DCD0068A435 /* stone3.png */; };
+		9855FFC021BE8DCD0068A435 /* underwater_ground.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFAE21BE8DCD0068A435 /* underwater_ground.png */; };
+		9855FFC121BE8DCD0068A435 /* weed1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFAF21BE8DCD0068A435 /* weed1.png */; };
+		9855FFC221BE8DCD0068A435 /* weed2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFB021BE8DCD0068A435 /* weed2.png */; };
+		9855FFC321BE8DCD0068A435 /* weed3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9855FFB121BE8DCD0068A435 /* weed3.png */; };
 		9857AC36219D9692005E0899 /* boat_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC2D219D9692005E0899 /* boat_1.png */; };
 		9857AC37219D9692005E0899 /* boat_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC2E219D9692005E0899 /* boat_2.png */; };
 		9857AC38219D9692005E0899 /* boat_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9857AC2F219D9692005E0899 /* boat_3.png */; };
@@ -50,10 +69,29 @@
 
 /* Begin PBXFileReference section */
 		98037FFA21B9A30A00910552 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin.png; path = Graphics/coin.png; sourceTree = SOURCE_ROOT; };
+		980911D221BF0CA700088B91 /* underwaterBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = underwaterBack.png; path = "Graphics/underwater Graphics/underwaterBack.png"; sourceTree = SOURCE_ROOT; };
 		98127EC621BDA0B80017396E /* GameOverScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameOverScreen.xib; sourceTree = "<group>"; };
 		98127EC821BDD9F90017396E /* ViewControllerGO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerGO.swift; sourceTree = "<group>"; };
 		983DBF4B219F08EF0010CDEE /* Background.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Background.jpeg; path = Graphics/Background.jpeg; sourceTree = SOURCE_ROOT; };
 		983DBF4D219F0CAE0010CDEE /* DraggedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggedImageView.swift; sourceTree = "<group>"; };
+		9855FFA021BE8DCD0068A435 /* bigStone1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigStone1.png; path = "Graphics/underwater Graphics/bigStone1.png"; sourceTree = SOURCE_ROOT; };
+		9855FFA121BE8DCD0068A435 /* bigStone2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bigStone2.png; path = "Graphics/underwater Graphics/bigStone2.png"; sourceTree = SOURCE_ROOT; };
+		9855FFA221BE8DCD0068A435 /* bWeed1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bWeed1.png; path = "Graphics/underwater Graphics/bWeed1.png"; sourceTree = SOURCE_ROOT; };
+		9855FFA321BE8DCD0068A435 /* bWeed2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bWeed2.png; path = "Graphics/underwater Graphics/bWeed2.png"; sourceTree = SOURCE_ROOT; };
+		9855FFA421BE8DCD0068A435 /* bWeed3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bWeed3.png; path = "Graphics/underwater Graphics/bWeed3.png"; sourceTree = SOURCE_ROOT; };
+		9855FFA521BE8DCD0068A435 /* coral1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coral1.png; path = "Graphics/underwater Graphics/coral1.png"; sourceTree = SOURCE_ROOT; };
+		9855FFA621BE8DCD0068A435 /* coral2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coral2.png; path = "Graphics/underwater Graphics/coral2.png"; sourceTree = SOURCE_ROOT; };
+		9855FFA721BE8DCD0068A435 /* crab1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crab1.png; path = "Graphics/underwater Graphics/crab1.png"; sourceTree = SOURCE_ROOT; };
+		9855FFA821BE8DCD0068A435 /* crab2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = crab2.png; path = "Graphics/underwater Graphics/crab2.png"; sourceTree = SOURCE_ROOT; };
+		9855FFA921BE8DCD0068A435 /* seaback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seaback.png; path = "Graphics/underwater Graphics/seaback.png"; sourceTree = SOURCE_ROOT; };
+		9855FFAA21BE8DCD0068A435 /* seafloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = seafloor.png; path = "Graphics/underwater Graphics/seafloor.png"; sourceTree = SOURCE_ROOT; };
+		9855FFAB21BE8DCD0068A435 /* stone1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stone1.png; path = "Graphics/underwater Graphics/stone1.png"; sourceTree = SOURCE_ROOT; };
+		9855FFAC21BE8DCD0068A435 /* stone2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stone2.png; path = "Graphics/underwater Graphics/stone2.png"; sourceTree = SOURCE_ROOT; };
+		9855FFAD21BE8DCD0068A435 /* stone3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stone3.png; path = "Graphics/underwater Graphics/stone3.png"; sourceTree = SOURCE_ROOT; };
+		9855FFAE21BE8DCD0068A435 /* underwater_ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = underwater_ground.png; path = "Graphics/underwater Graphics/underwater_ground.png"; sourceTree = SOURCE_ROOT; };
+		9855FFAF21BE8DCD0068A435 /* weed1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weed1.png; path = "Graphics/underwater Graphics/weed1.png"; sourceTree = SOURCE_ROOT; };
+		9855FFB021BE8DCD0068A435 /* weed2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weed2.png; path = "Graphics/underwater Graphics/weed2.png"; sourceTree = SOURCE_ROOT; };
+		9855FFB121BE8DCD0068A435 /* weed3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = weed3.png; path = "Graphics/underwater Graphics/weed3.png"; sourceTree = SOURCE_ROOT; };
 		9857AC2D219D9692005E0899 /* boat_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_1.png; path = ../Graphics/boat_1.png; sourceTree = "<group>"; };
 		9857AC2E219D9692005E0899 /* boat_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_2.png; path = ../Graphics/boat_2.png; sourceTree = "<group>"; };
 		9857AC2F219D9692005E0899 /* boat_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = boat_3.png; path = ../Graphics/boat_3.png; sourceTree = "<group>"; };
@@ -127,6 +165,25 @@
 		9890458C21945837005A974A /* 14154692_MBCoursework */ = {
 			isa = PBXGroup;
 			children = (
+				980911D221BF0CA700088B91 /* underwaterBack.png */,
+				9855FFA021BE8DCD0068A435 /* bigStone1.png */,
+				9855FFA121BE8DCD0068A435 /* bigStone2.png */,
+				9855FFA221BE8DCD0068A435 /* bWeed1.png */,
+				9855FFA321BE8DCD0068A435 /* bWeed2.png */,
+				9855FFA421BE8DCD0068A435 /* bWeed3.png */,
+				9855FFA521BE8DCD0068A435 /* coral1.png */,
+				9855FFA621BE8DCD0068A435 /* coral2.png */,
+				9855FFA721BE8DCD0068A435 /* crab1.png */,
+				9855FFA821BE8DCD0068A435 /* crab2.png */,
+				9855FFA921BE8DCD0068A435 /* seaback.png */,
+				9855FFAA21BE8DCD0068A435 /* seafloor.png */,
+				9855FFAB21BE8DCD0068A435 /* stone1.png */,
+				9855FFAC21BE8DCD0068A435 /* stone2.png */,
+				9855FFAD21BE8DCD0068A435 /* stone3.png */,
+				9855FFAE21BE8DCD0068A435 /* underwater_ground.png */,
+				9855FFAF21BE8DCD0068A435 /* weed1.png */,
+				9855FFB021BE8DCD0068A435 /* weed2.png */,
+				9855FFB121BE8DCD0068A435 /* weed3.png */,
 				98037FFA21B9A30A00910552 /* coin.png */,
 				985FA38521A6C5A100DF4036 /* rock.png */,
 				9857AC2D219D9692005E0899 /* boat_1.png */,
@@ -278,21 +335,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				9857AC3D219D9692005E0899 /* boat_8.png in Resources */,
+				9855FFB321BE8DCD0068A435 /* bigStone2.png in Resources */,
 				9857AC39219D9692005E0899 /* boat_4.png in Resources */,
 				9857AC37219D9692005E0899 /* boat_2.png in Resources */,
 				9857AC3B219D9692005E0899 /* boat_6.png in Resources */,
 				9890459821945838005A974A /* LaunchScreen.storyboard in Resources */,
+				9855FFB421BE8DCD0068A435 /* bWeed1.png in Resources */,
 				9890459521945838005A974A /* Assets.xcassets in Resources */,
 				9857AC3C219D9692005E0899 /* boat_7.png in Resources */,
 				9890459321945838005A974A /* Main.storyboard in Resources */,
+				980911D321BF0CA700088B91 /* underwaterBack.png in Resources */,
 				983DBF4C219F08EF0010CDEE /* Background.jpeg in Resources */,
+				9855FFB721BE8DCD0068A435 /* coral1.png in Resources */,
+				9855FFBE21BE8DCD0068A435 /* stone2.png in Resources */,
+				9855FFBF21BE8DCD0068A435 /* stone3.png in Resources */,
 				98127EC721BDA0B80017396E /* GameOverScreen.xib in Resources */,
 				9857AC36219D9692005E0899 /* boat_1.png in Resources */,
+				9855FFBC21BE8DCD0068A435 /* seafloor.png in Resources */,
+				9855FFB621BE8DCD0068A435 /* bWeed3.png in Resources */,
+				9855FFC121BE8DCD0068A435 /* weed1.png in Resources */,
 				985FA38621A6C5A200DF4036 /* rock.png in Resources */,
 				98037FFB21B9A30A00910552 /* coin.png in Resources */,
 				9857AC38219D9692005E0899 /* boat_3.png in Resources */,
+				9855FFB221BE8DCD0068A435 /* bigStone1.png in Resources */,
 				9857AC3A219D9692005E0899 /* boat_5.png in Resources */,
+				9855FFBB21BE8DCD0068A435 /* seaback.png in Resources */,
+				9855FFBA21BE8DCD0068A435 /* crab2.png in Resources */,
+				9855FFBD21BE8DCD0068A435 /* stone1.png in Resources */,
+				9855FFB821BE8DCD0068A435 /* coral2.png in Resources */,
+				9855FFC321BE8DCD0068A435 /* weed3.png in Resources */,
+				9855FFB921BE8DCD0068A435 /* crab1.png in Resources */,
+				9855FFB521BE8DCD0068A435 /* bWeed2.png in Resources */,
 				9857AC3E219D9692005E0899 /* boat_9.png in Resources */,
+				9855FFC021BE8DCD0068A435 /* underwater_ground.png in Resources */,
+				9855FFC221BE8DCD0068A435 /* weed2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

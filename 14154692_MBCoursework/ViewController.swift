@@ -45,11 +45,32 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     
     func initialiseBackground() {
         // Setup Background
-        let seaView = UIImageView(image: UIImage(named: "Background.jpeg"))
-        seaView.frame = UIScreen.main.bounds
-        self.view.addSubview(seaView)
-        //animateHorizontally(viewAnimation: seaView, duration: 20)
+        self.view.backgroundColor = UIColor.blue
+        let seaView = UIImageView(image: UIImage(named: "underwaterBack.png"))
+        seaView.frame = CGRect(x:0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        let seaFloor = UIImageView(image: UIImage(named: "seafloor.png"))
+        seaFloor.frame = CGRect(x:0, y: 350, width: (UIScreen.main.bounds.width), height: 65)
+        
+        animateOb(ob: seaView, duration: 3)
+        animateOb(ob: seaFloor, duration: 5)
+
     }
+    func animateOb(ob: UIImageView, duration: TimeInterval) {
+        let obA = UIImageView(image: ob.image)
+        let obB = UIImageView(image: ob.image)
+        obA.frame = ob.frame
+        obB.frame = ob.frame
+        obB.frame.origin.x = ob.frame.width
+        
+        self.view.addSubview(obA)
+        self.view.addSubview(obB)
+        
+        UIImageView.animate(withDuration: duration, delay: 0.0, options: [.curveLinear,.repeat], animations: {
+            obA.frame.origin.x = -obA.frame.width
+            obB.frame.origin.x = 0
+        })
+    }
+    
     
     func initialiseScores() {
         // Create score label
@@ -112,13 +133,6 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     
     // ------------------------- Helper Methods -------------------------------//
     
-    // Move view horizontally
-    func animateHorizontally(viewAnimation: UIView, duration: TimeInterval) {
-        UIView.animate(withDuration: duration, animations: {
-            viewAnimation.frame.origin.x = -viewAnimation.frame.width
-        })
-    }
-    
     // Create x number of coins
     func addCoin() {
         let screenSize = UIScreen.main.bounds
@@ -154,6 +168,43 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         collisionBehavior.addItem(obstacle)
     }
     
+    func addFloorObject() {
+        let screenSize = UIScreen.main.bounds
+        let randomXPos = CGFloat(screenSize.width)
+        
+        let floorObjects = [
+            ["bigStone1.png", 90, 90, 270],
+            ["bigStone2.png", 90, 90, 280],
+            ["bWeed1.png", 35, 45, 315],
+            ["bWeed2.png", 35, 45, 315],
+            ["bWeed3.png", 35, 45, 315],
+            ["coral1.png", 90, 80, 310],
+            ["coral2.png", 90, 80, 305],
+            ["crab1.png", 30, 30, 340],
+            ["crab2.png", 30, 30, 340],
+            ["stone1.png", 45, 45, 320],
+            ["stone2.png", 45, 45, 315],
+            ["stone3.png", 45, 45, 330],
+            ["weed1.png", 40, 50, 315],
+            ["weed2.png", 40, 50, 315],
+            ["weed3.png", 40, 50, 315]]
+        
+        let fOb = UIImageView(image: nil)
+        let ran = arc4random_uniform(UInt32(floorObjects.count - 1))
+        fOb.image = UIImage(named: floorObjects[Int(ran)][0] as! String)
+        fOb.frame = CGRect(
+            x:randomXPos,
+            y: CGFloat(floorObjects[Int(ran)][3] as! Int),
+            width: CGFloat(floorObjects[Int(ran)][1] as! Int),
+            height: CGFloat(floorObjects[Int(ran)][2] as! Int)
+        )
+        self.view.addSubview(fOb)
+        self.view.bringSubview(toFront: fOb)
+
+        dynamicItemBehavior.addItem(fOb)
+        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: fOb)
+    }
+    
     // Returns the obstacle boundary that corresponds to their current position
     func getUpdatedObjectBoundary(object: UIImageView) -> CGRect{
         let obstacleBoundary: CGRect!
@@ -185,6 +236,8 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
             addCoin()
             addObstacle()
         }
+        
+        addFloorObject()
     }
     
     // Updates the score every 0.01 seconds. (uses Timer)
@@ -209,16 +262,16 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         gameOver.backgroundColor = UIColor.darkGray
         
         let gameOverLabel = UILabel()
-        gameOverLabel.frame = CGRect(x: 300, y: 50, width: 300, height: 200)
+        gameOverLabel.frame = CGRect(x: 310, y: 50, width: 300, height: 200)
         gameOverLabel.text = "GAME OVER"
         gameOverLabel.textColor = UIColor.white
         
         let scoreGO = UILabel()
-        scoreGO.frame = CGRect(x: 300, y:162, width:200, height:50)
+        scoreGO.frame = CGRect(x: 285, y:162, width:200, height:50)
         scoreGO.text = "Final Score: " + score.text!
         scoreGO.textColor = UIColor.white
         
-        let replayBtn = UIButton(frame: CGRect(x: 350, y: 200, width: 100, height: 50))
+        let replayBtn = UIButton(frame: CGRect(x: 315, y: 210, width: 100, height: 50))
         replayBtn.backgroundColor = .green
         replayBtn.setTitle("Replay", for: .normal)
         replayBtn.addTarget(self, action: #selector(viewDidLoad), for: .touchUpInside)
@@ -234,7 +287,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     
     // Triggered by boat colliding with objects
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
-        let deductScore = 940 // can change
+        let deductScore = 600 // can change
         let increaseScore = 1200 // can change
         let itemObject = item as! UIImageView
         
@@ -251,8 +304,8 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
             // increase score if the boat has collided with a coin
             if coinsArray.contains(itemObject) {
                 score.text = String(Int(score.text!)! + increaseScore)
-                (item as! UIImageView).image = nil
-                coinsArray.remove(at: coinsArray.index(of: item as! UIImageView)!)
+                itemObject.image = nil
+                coinsArray.remove(at: coinsArray.index(of: itemObject)!)
             }
         }
         
