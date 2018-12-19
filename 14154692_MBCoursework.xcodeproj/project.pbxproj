@@ -48,6 +48,11 @@
 		9890459821945838005A974A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9890459621945838005A974A /* LaunchScreen.storyboard */; };
 		989045A321945838005A974A /* _4154692_MBCourseworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989045A221945838005A974A /* _4154692_MBCourseworkTests.swift */; };
 		989045AE21945838005A974A /* _4154692_MBCourseworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989045AD21945838005A974A /* _4154692_MBCourseworkUITests.swift */; };
+		98B6890721C59BA0000D2B88 /* shark1.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B6890221C59BA0000D2B88 /* shark1.png */; };
+		98B6890821C59BA0000D2B88 /* shark2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B6890321C59BA0000D2B88 /* shark2.png */; };
+		98B6890921C59BA0000D2B88 /* shark3.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B6890421C59BA0000D2B88 /* shark3.png */; };
+		98B6890A21C59BA0000D2B88 /* shark4.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B6890521C59BA0000D2B88 /* shark4.png */; };
+		98B6890B21C59BA0000D2B88 /* shark5.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B6890621C59BA0000D2B88 /* shark5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +120,11 @@
 		989045A921945838005A974A /* 14154692_MBCourseworkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 14154692_MBCourseworkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		989045AD21945838005A974A /* _4154692_MBCourseworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _4154692_MBCourseworkUITests.swift; sourceTree = "<group>"; };
 		989045AF21945838005A974A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98B6890221C59BA0000D2B88 /* shark1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shark1.png; path = Graphics/shark1.png; sourceTree = SOURCE_ROOT; };
+		98B6890321C59BA0000D2B88 /* shark2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shark2.png; path = Graphics/shark2.png; sourceTree = SOURCE_ROOT; };
+		98B6890421C59BA0000D2B88 /* shark3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shark3.png; path = Graphics/shark3.png; sourceTree = SOURCE_ROOT; };
+		98B6890521C59BA0000D2B88 /* shark4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shark4.png; path = Graphics/shark4.png; sourceTree = SOURCE_ROOT; };
+		98B6890621C59BA0000D2B88 /* shark5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shark5.png; path = Graphics/shark5.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +175,11 @@
 		9890458C21945837005A974A /* 14154692_MBCoursework */ = {
 			isa = PBXGroup;
 			children = (
+				98B6890221C59BA0000D2B88 /* shark1.png */,
+				98B6890321C59BA0000D2B88 /* shark2.png */,
+				98B6890421C59BA0000D2B88 /* shark3.png */,
+				98B6890521C59BA0000D2B88 /* shark4.png */,
+				98B6890621C59BA0000D2B88 /* shark5.png */,
 				980911D221BF0CA700088B91 /* underwaterBack.png */,
 				9855FFA021BE8DCD0068A435 /* bigStone1.png */,
 				9855FFA121BE8DCD0068A435 /* bigStone2.png */,
@@ -295,6 +310,7 @@
 				TargetAttributes = {
 					9890458921945837005A974A = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 2782HQQQ9M;
 						ProvisioningStyle = Automatic;
 					};
 					9890459D21945838005A974A = {
@@ -335,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9857AC3D219D9692005E0899 /* boat_8.png in Resources */,
+				98B6890821C59BA0000D2B88 /* shark2.png in Resources */,
 				9855FFB321BE8DCD0068A435 /* bigStone2.png in Resources */,
 				9857AC39219D9692005E0899 /* boat_4.png in Resources */,
 				9857AC37219D9692005E0899 /* boat_2.png in Resources */,
@@ -354,6 +371,7 @@
 				9855FFBC21BE8DCD0068A435 /* seafloor.png in Resources */,
 				9855FFB621BE8DCD0068A435 /* bWeed3.png in Resources */,
 				9855FFC121BE8DCD0068A435 /* weed1.png in Resources */,
+				98B6890921C59BA0000D2B88 /* shark3.png in Resources */,
 				985FA38621A6C5A200DF4036 /* rock.png in Resources */,
 				98037FFB21B9A30A00910552 /* coin.png in Resources */,
 				9857AC38219D9692005E0899 /* boat_3.png in Resources */,
@@ -364,11 +382,14 @@
 				9855FFBD21BE8DCD0068A435 /* stone1.png in Resources */,
 				9855FFB821BE8DCD0068A435 /* coral2.png in Resources */,
 				9855FFC321BE8DCD0068A435 /* weed3.png in Resources */,
+				98B6890A21C59BA0000D2B88 /* shark4.png in Resources */,
 				9855FFB921BE8DCD0068A435 /* crab1.png in Resources */,
 				9855FFB521BE8DCD0068A435 /* bWeed2.png in Resources */,
+				98B6890B21C59BA0000D2B88 /* shark5.png in Resources */,
 				9857AC3E219D9692005E0899 /* boat_9.png in Resources */,
 				9855FFC021BE8DCD0068A435 /* underwater_ground.png in Resources */,
 				9855FFC221BE8DCD0068A435 /* weed2.png in Resources */,
+				98B6890721C59BA0000D2B88 /* shark1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +571,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2782HQQQ9M;
 				INFOPLIST_FILE = 14154692_MBCoursework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "gerron.-4154692-MBCoursework";
@@ -562,6 +584,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2782HQQQ9M;
 				INFOPLIST_FILE = 14154692_MBCoursework/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "gerron.-4154692-MBCoursework";

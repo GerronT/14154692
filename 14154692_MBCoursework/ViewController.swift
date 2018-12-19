@@ -155,11 +155,19 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     func addObstacle() {
         let screenSize = self.view.bounds
         let randomXPos = CGFloat(screenSize.width)
-        let randomYPos = CGFloat(arc4random_uniform(UInt32(screenSize.height)))
+        let randomYPos = CGFloat(arc4random_uniform(UInt32(screenSize.height)-75))
 
         let obstacle = UIImageView(image: nil)
-        obstacle.image = UIImage(named: "rock.png")
-        obstacle.frame = CGRect(x:randomXPos, y: randomYPos, width: 30, height: 30)
+        
+        var obsArray: [UIImage]!
+        obsArray = [UIImage(named: "shark1.png")!,
+                      UIImage(named: "shark2.png")!,
+                      UIImage(named: "shark3.png")!,
+                      UIImage(named: "shark4.png")!,
+                      UIImage(named: "shark5.png")!,]
+        obstacle.image = UIImage.animatedImage(with: obsArray, duration: 1)
+        
+        obstacle.frame = CGRect(x:randomXPos, y: randomYPos, width: 130, height: 50)
         obstacleArray.append(obstacle)
         self.view.addSubview(obstacle)
         
@@ -228,12 +236,9 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     func graduallyAddMoreObjects() {
         let num = arc4random_uniform(_:3)
         // will sometimes add coin, sometimes add obstacle, sometimes add both, sometimes add none
-        if num == 0 {
+        if num == 0 || num == 1 {
             addCoin()
-        } else if num == 1 {
-            addObstacle()
         } else if num == 2 {
-            addCoin()
             addObstacle()
         }
         
@@ -287,13 +292,21 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     
     // Triggered by boat colliding with objects
     func collisionBehavior(_ behavior: UICollisionBehavior, beganContactFor item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, at p: CGPoint) {
-        let deductScore = 600 // can change
-        let increaseScore = 1200 // can change
+        let deductScore = 200 // can change
+        let increaseScore = 500 // can change
         let itemObject = item as! UIImageView
         
         if identifier.unsafelyUnwrapped as! String == "boatRockCollisionPoint" {
             // deduct score if boat has collided with an obstacle
             if obstacleArray.contains(itemObject) {
+                var runShark: [UIImage]!
+                runShark = [UIImage(named: "shark1.png")!.withHorizontallyFlippedOrientation(),
+                            UIImage(named: "shark2.png")!.withHorizontallyFlippedOrientation(),
+                            UIImage(named: "shark3.png")!.withHorizontallyFlippedOrientation(),
+                            UIImage(named: "shark4.png")!.withHorizontallyFlippedOrientation(),
+                            UIImage(named: "shark5.png")!.withHorizontallyFlippedOrientation(),]
+                itemObject.image = UIImage.animatedImage(with: runShark, duration: 1)
+                self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 200, y: 0), for: itemObject)
                 if Int(score.text!)! > deductScore {
                     score.text = String(Int(score.text!)! - deductScore)
                 }
@@ -310,6 +323,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         }
         
     }
+    
 
     // ------------------------- EXTRA Methods -------------------------------//
     
