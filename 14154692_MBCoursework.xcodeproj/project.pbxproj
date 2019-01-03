@@ -53,6 +53,18 @@
 		98B6890921C59BA0000D2B88 /* shark3.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B6890421C59BA0000D2B88 /* shark3.png */; };
 		98B6890A21C59BA0000D2B88 /* shark4.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B6890521C59BA0000D2B88 /* shark4.png */; };
 		98B6890B21C59BA0000D2B88 /* shark5.png in Resources */ = {isa = PBXBuildFile; fileRef = 98B6890621C59BA0000D2B88 /* shark5.png */; };
+		98DFE73321DE541400AA801C /* submarine1.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE72D21DE541300AA801C /* submarine1.png */; };
+		98DFE73421DE541400AA801C /* submarine2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE72E21DE541300AA801C /* submarine2.png */; };
+		98DFE73521DE541400AA801C /* submarine3.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE72F21DE541300AA801C /* submarine3.png */; };
+		98DFE73621DE541400AA801C /* submarine4.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE73021DE541300AA801C /* submarine4.png */; };
+		98DFE73721DE541400AA801C /* submarine5.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE73121DE541400AA801C /* submarine5.png */; };
+		98DFE73821DE541400AA801C /* submarine6.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE73221DE541400AA801C /* submarine6.png */; };
+		98DFE73F21DE66B200AA801C /* coin3.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE73921DE66B000AA801C /* coin3.png */; };
+		98DFE74021DE66B200AA801C /* coin1.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE73A21DE66B000AA801C /* coin1.png */; };
+		98DFE74121DE66B200AA801C /* coin4.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE73B21DE66B100AA801C /* coin4.png */; };
+		98DFE74221DE66B200AA801C /* coin2.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE73C21DE66B100AA801C /* coin2.png */; };
+		98DFE74321DE66B200AA801C /* coin5.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE73D21DE66B100AA801C /* coin5.png */; };
+		98DFE74421DE66B200AA801C /* coin6.png in Resources */ = {isa = PBXBuildFile; fileRef = 98DFE73E21DE66B100AA801C /* coin6.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +137,18 @@
 		98B6890421C59BA0000D2B88 /* shark3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shark3.png; path = Graphics/shark3.png; sourceTree = SOURCE_ROOT; };
 		98B6890521C59BA0000D2B88 /* shark4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shark4.png; path = Graphics/shark4.png; sourceTree = SOURCE_ROOT; };
 		98B6890621C59BA0000D2B88 /* shark5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shark5.png; path = Graphics/shark5.png; sourceTree = SOURCE_ROOT; };
+		98DFE72D21DE541300AA801C /* submarine1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submarine1.png; path = Graphics/submarine1.png; sourceTree = SOURCE_ROOT; };
+		98DFE72E21DE541300AA801C /* submarine2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submarine2.png; path = Graphics/submarine2.png; sourceTree = SOURCE_ROOT; };
+		98DFE72F21DE541300AA801C /* submarine3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submarine3.png; path = Graphics/submarine3.png; sourceTree = SOURCE_ROOT; };
+		98DFE73021DE541300AA801C /* submarine4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submarine4.png; path = Graphics/submarine4.png; sourceTree = SOURCE_ROOT; };
+		98DFE73121DE541400AA801C /* submarine5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submarine5.png; path = Graphics/submarine5.png; sourceTree = SOURCE_ROOT; };
+		98DFE73221DE541400AA801C /* submarine6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submarine6.png; path = Graphics/submarine6.png; sourceTree = SOURCE_ROOT; };
+		98DFE73921DE66B000AA801C /* coin3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin3.png; path = Graphics/coin3.png; sourceTree = SOURCE_ROOT; };
+		98DFE73A21DE66B000AA801C /* coin1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin1.png; path = Graphics/coin1.png; sourceTree = SOURCE_ROOT; };
+		98DFE73B21DE66B100AA801C /* coin4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin4.png; path = Graphics/coin4.png; sourceTree = SOURCE_ROOT; };
+		98DFE73C21DE66B100AA801C /* coin2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin2.png; path = Graphics/coin2.png; sourceTree = SOURCE_ROOT; };
+		98DFE73D21DE66B100AA801C /* coin5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin5.png; path = Graphics/coin5.png; sourceTree = SOURCE_ROOT; };
+		98DFE73E21DE66B100AA801C /* coin6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = coin6.png; path = Graphics/coin6.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +236,18 @@
 				9857AC35219D9692005E0899 /* boat_9.png */,
 				9890458D21945838005A974A /* AppDelegate.swift */,
 				9890458F21945838005A974A /* ViewController.swift */,
+				98DFE73A21DE66B000AA801C /* coin1.png */,
+				98DFE73C21DE66B100AA801C /* coin2.png */,
+				98DFE73921DE66B000AA801C /* coin3.png */,
+				98DFE73B21DE66B100AA801C /* coin4.png */,
+				98DFE73D21DE66B100AA801C /* coin5.png */,
+				98DFE73E21DE66B100AA801C /* coin6.png */,
+				98DFE72D21DE541300AA801C /* submarine1.png */,
+				98DFE72E21DE541300AA801C /* submarine2.png */,
+				98DFE72F21DE541300AA801C /* submarine3.png */,
+				98DFE73021DE541300AA801C /* submarine4.png */,
+				98DFE73121DE541400AA801C /* submarine5.png */,
+				98DFE73221DE541400AA801C /* submarine6.png */,
 				983DBF4D219F0CAE0010CDEE /* DraggedImageView.swift */,
 				9890459121945838005A974A /* Main.storyboard */,
 				983DBF4B219F08EF0010CDEE /* Background.jpeg */,
@@ -356,24 +392,36 @@
 				9857AC39219D9692005E0899 /* boat_4.png in Resources */,
 				9857AC37219D9692005E0899 /* boat_2.png in Resources */,
 				9857AC3B219D9692005E0899 /* boat_6.png in Resources */,
+				98DFE74021DE66B200AA801C /* coin1.png in Resources */,
 				9890459821945838005A974A /* LaunchScreen.storyboard in Resources */,
 				9855FFB421BE8DCD0068A435 /* bWeed1.png in Resources */,
 				9890459521945838005A974A /* Assets.xcassets in Resources */,
 				9857AC3C219D9692005E0899 /* boat_7.png in Resources */,
+				98DFE73721DE541400AA801C /* submarine5.png in Resources */,
 				9890459321945838005A974A /* Main.storyboard in Resources */,
 				980911D321BF0CA700088B91 /* underwaterBack.png in Resources */,
 				983DBF4C219F08EF0010CDEE /* Background.jpeg in Resources */,
+				98DFE74321DE66B200AA801C /* coin5.png in Resources */,
 				9855FFB721BE8DCD0068A435 /* coral1.png in Resources */,
+				98DFE74121DE66B200AA801C /* coin4.png in Resources */,
 				9855FFBE21BE8DCD0068A435 /* stone2.png in Resources */,
 				9855FFBF21BE8DCD0068A435 /* stone3.png in Resources */,
 				98127EC721BDA0B80017396E /* GameOverScreen.xib in Resources */,
+				98DFE73321DE541400AA801C /* submarine1.png in Resources */,
 				9857AC36219D9692005E0899 /* boat_1.png in Resources */,
+				98DFE74421DE66B200AA801C /* coin6.png in Resources */,
+				98DFE73421DE541400AA801C /* submarine2.png in Resources */,
 				9855FFBC21BE8DCD0068A435 /* seafloor.png in Resources */,
 				9855FFB621BE8DCD0068A435 /* bWeed3.png in Resources */,
+				98DFE74221DE66B200AA801C /* coin2.png in Resources */,
 				9855FFC121BE8DCD0068A435 /* weed1.png in Resources */,
 				98B6890921C59BA0000D2B88 /* shark3.png in Resources */,
 				985FA38621A6C5A200DF4036 /* rock.png in Resources */,
+				98DFE73F21DE66B200AA801C /* coin3.png in Resources */,
+				98DFE73521DE541400AA801C /* submarine3.png in Resources */,
+				98DFE73821DE541400AA801C /* submarine6.png in Resources */,
 				98037FFB21B9A30A00910552 /* coin.png in Resources */,
+				98DFE73621DE541400AA801C /* submarine4.png in Resources */,
 				9857AC38219D9692005E0899 /* boat_3.png in Resources */,
 				9855FFB221BE8DCD0068A435 /* bigStone1.png in Resources */,
 				9857AC3A219D9692005E0899 /* boat_5.png in Resources */,

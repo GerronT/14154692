@@ -38,6 +38,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         // Initializes the timer for the entire game (Finishes after 20 seconds)
         gameTimer = Timer.scheduledTimer(timeInterval: 20, target: self, selector: #selector(ViewController.finishGame), userInfo: nil, repeats: true)
         
+        // Gradually add more coins, obstacles and seafloor objects every second
         objectAdder = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.graduallyAddMoreObjects), userInfo: nil, repeats: true)
     }
     
@@ -96,15 +97,11 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         boat.frame = CGRect(x:16, y: 276, width: 123, height: 79)
         boat.myDelegate = self
         var imageArray: [UIImage]!
-        imageArray = [UIImage(named: "boat_1.png")!,
-                      UIImage(named: "boat_2.png")!,
-                      UIImage(named: "boat_3.png")!,
-                      UIImage(named: "boat_4.png")!,
-                      UIImage(named: "boat_5.png")!,
-                      UIImage(named: "boat_6.png")!,
-                      UIImage(named: "boat_7.png")!,
-                      UIImage(named: "boat_8.png")!,
-                      UIImage(named: "boat_9.png")!]
+        imageArray = [UIImage(named: "submarine1.png")!,
+                      UIImage(named: "submarine2.png")!,
+                      UIImage(named: "submarine3.png")!,
+                      UIImage(named: "submarine4.png")!,
+                      UIImage(named: "submarine5.png")!,]
         boat.image = UIImage.animatedImage(with: imageArray, duration: 1)
         boat.isUserInteractionEnabled = true
         self.view.addSubview(boat)
@@ -140,7 +137,15 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         let randomYPos = CGFloat(arc4random_uniform(UInt32(screenSize.height)))
         
         let coin = UIImageView(image: nil)
-        coin.image = UIImage(named: "coin.png")
+        
+        var cnsArray: [UIImage]!
+        cnsArray = [UIImage(named: "coin1.png")!,
+                    UIImage(named: "coin2.png")!,
+                    UIImage(named: "coin3.png")!,
+                    UIImage(named: "coin4.png")!,
+                    UIImage(named: "coin5.png")!,]
+        coin.image = UIImage.animatedImage(with: cnsArray, duration: 1)
+        
         coin.frame = CGRect(x:randomXPos, y: randomYPos, width: 20, height: 20)
         coinsArray.append(coin)
         self.view.addSubview(coin)
