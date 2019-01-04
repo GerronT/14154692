@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol subviewDelegate {
     func boatDragged()
@@ -22,14 +23,20 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     
     var boat: DraggedImageView!
     var score = UILabel()
+    var highScore = 0
     
     var obstacleArray: [UIImageView]!
     var coinsArray: [UIImageView]!
     var boatUpdatedBounds: CGRect!
     
+    // static let sharedHelper = MusicPlayer()
+    var audioPlayer: AVAudioPlayer?
+    var ap: AVAudioPlayer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        playBackgroundMusic()
         initialiseBackground()
         initialiseScores()
         initialiseAvatar()
@@ -40,6 +47,20 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         
         // Gradually add more coins, obstacles and seafloor objects every second
         objectAdder = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.graduallyAddMoreObjects), userInfo: nil, repeats: true)
+    }
+    
+    
+    func playBackgroundMusic() {
+        let aSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "Through_the_Sea_of_Time", ofType: "mp3")!)
+
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf:aSound as URL)
+            audioPlayer!.numberOfLoops = -1
+            audioPlayer!.prepareToPlay()
+            audioPlayer!.play()
+        } catch {
+            print("Cannot play the file")
+        }
     }
     
     // ------------------------- INITIALISE METHODS -------------------------------//
@@ -146,9 +167,10 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
                     UIImage(named: "coin5.png")!,]
         coin.image = UIImage.animatedImage(with: cnsArray, duration: 1)
         
-        coin.frame = CGRect(x:randomXPos, y: randomYPos, width: 20, height: 20)
+        coin.frame = CGRect(x:randomXPos, y: randomYPos, width: 35, height: 35)
         coinsArray.append(coin)
         self.view.addSubview(coin)
+        self.view.bringSubview(toFront: coin)
         
         dynamicItemBehavior.addItem(coin)
         self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: coin)
@@ -160,7 +182,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     func addObstacle() {
         let screenSize = self.view.bounds
         let randomXPos = CGFloat(screenSize.width)
-        let randomYPos = CGFloat(arc4random_uniform(UInt32(screenSize.height)-75))
+        let randomYPos = CGFloat(arc4random_uniform(UInt32(screenSize.height)-100))
 
         let obstacle = UIImageView(image: nil)
         
@@ -175,6 +197,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         obstacle.frame = CGRect(x:randomXPos, y: randomYPos, width: 130, height: 50)
         obstacleArray.append(obstacle)
         self.view.addSubview(obstacle)
+        self.view.bringSubview(toFront: obstacle)
         
         dynamicItemBehavior.addItem(obstacle)
         self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: obstacle)
@@ -213,6 +236,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         )
         self.view.addSubview(fOb)
         self.view.bringSubview(toFront: fOb)
+        self.view.bringSubview(toFront: boat)
 
         dynamicItemBehavior.addItem(fOb)
         self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: fOb)
@@ -267,6 +291,8 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
     // Triggers a segue to switch to game over scene
     func callGameOverScreen() {
         // BRING UP GAMEOVER SCREEN
+        audioPlayer!.stop()
+        
         let gameOver = UIImageView()
         gameOver.frame = UIScreen.main.bounds
         gameOver.backgroundColor = UIColor.darkGray
@@ -281,7 +307,20 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         scoreGO.text = "Final Score: " + score.text!
         scoreGO.textColor = UIColor.white
         
-        let replayBtn = UIButton(frame: CGRect(x: 315, y: 210, width: 100, height: 50))
+        if (Int(score.text!)! > highScore) {
+            highScore = Int(score.text!)!
+            scoreGO.frame = CGRect(x: 220, y:162, width:300, height:50)
+            scoreGO.text = "Final Score (New High Score!): " + score.text!
+            scoreGO.textColor = UIColor.green
+        }
+        
+        let highScoreLabel = UILabel()
+        highScoreLabel.frame = CGRect(x: 285, y:190, width:200, height:50)
+        highScoreLabel.text = "High Score: " + String(highScore)
+        highScoreLabel.textColor = UIColor.blue
+        
+        
+        let replayBtn = UIButton(frame: CGRect(x: 310, y: 238, width: 100, height: 50))
         replayBtn.backgroundColor = .green
         replayBtn.setTitle("Replay", for: .normal)
         replayBtn.addTarget(self, action: #selector(viewDidLoad), for: .touchUpInside)
@@ -289,6 +328,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         self.view.addSubview(gameOver)
         self.view.addSubview(gameOverLabel)
         self.view.addSubview(scoreGO)
+        self.view.addSubview(highScoreLabel)
         self.view.addSubview(replayBtn)
         
         // SHOW FINAL SCORE
@@ -301,30 +341,50 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         let increaseScore = 500 // can change
         let itemObject = item as! UIImageView
         
-        if identifier.unsafelyUnwrapped as! String == "boatRockCollisionPoint" {
-            // deduct score if boat has collided with an obstacle
-            if obstacleArray.contains(itemObject) {
-                var runShark: [UIImage]!
-                runShark = [UIImage(named: "shark1.png")!.withHorizontallyFlippedOrientation(),
-                            UIImage(named: "shark2.png")!.withHorizontallyFlippedOrientation(),
-                            UIImage(named: "shark3.png")!.withHorizontallyFlippedOrientation(),
-                            UIImage(named: "shark4.png")!.withHorizontallyFlippedOrientation(),
-                            UIImage(named: "shark5.png")!.withHorizontallyFlippedOrientation(),]
-                itemObject.image = UIImage.animatedImage(with: runShark, duration: 1)
-                self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 200, y: 0), for: itemObject)
-                if Int(score.text!)! > deductScore {
-                    score.text = String(Int(score.text!)! - deductScore)
-                }
-                // Change color of avatar
-                boat.tintColor = UIColor.red
-            }
         
-            // increase score if the boat has collided with a coin
-            if coinsArray.contains(itemObject) {
-                score.text = String(Int(score.text!)! + increaseScore)
-                itemObject.image = nil
-                coinsArray.remove(at: coinsArray.index(of: itemObject)!)
+        
+        // deduct score if boat has collided with an obstacle
+        if obstacleArray.contains(itemObject) {
+            let obsSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "0311_008E", ofType: "wav")!)
+            do {
+                ap = try AVAudioPlayer(contentsOf:obsSound as URL)
+                ap!.prepareToPlay()
+                ap!.play()
+            } catch {
+                print("Cannot play the file")
             }
+            collisionBehavior.removeItem(itemObject)
+            var runShark: [UIImage]!
+                
+            runShark = [UIImage(named: "shark1.png")!.withHorizontallyFlippedOrientation(),
+                        UIImage(named: "shark2.png")!.withHorizontallyFlippedOrientation(),
+                        UIImage(named: "shark3.png")!.withHorizontallyFlippedOrientation(),
+                        UIImage(named: "shark4.png")!.withHorizontallyFlippedOrientation(),
+                        UIImage(named: "shark5.png")!.withHorizontallyFlippedOrientation(),]
+            
+            itemObject.image = UIImage.animatedImage(with: runShark, duration: 1)
+            self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: 200, y: 0), for: itemObject)
+            
+            if Int(score.text!)! > deductScore {
+                score.text = String(Int(score.text!)! - deductScore)
+            }
+            // Change color of avatar
+            boat.tintColor = UIColor.red
+        }
+        
+        // increase score if the boat has collided with a coin
+        if coinsArray.contains(itemObject) {
+            let obsSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "0311_002A", ofType: "wav")!)
+            do {
+                ap = try AVAudioPlayer(contentsOf:obsSound as URL)
+                ap!.prepareToPlay()
+                ap!.play()
+            } catch {
+                print("Cannot play the file")
+            }
+            score.text = String(Int(score.text!)! + increaseScore)
+            itemObject.image = nil
+            coinsArray.remove(at: coinsArray.index(of: itemObject)!)
         }
         
     }
