@@ -126,6 +126,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         boat.image = UIImage.animatedImage(with: imageArray, duration: 1)
         boat.isUserInteractionEnabled = true
         self.view.addSubview(boat)
+        boat.image = boat.image!.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         boatUpdatedBounds = getUpdatedObjectBoundary(object: boat)
     }
     
@@ -200,7 +201,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         self.view.bringSubview(toFront: obstacle)
         
         dynamicItemBehavior.addItem(obstacle)
-        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -200, y: 0), for: obstacle)
+        self.dynamicItemBehavior.addLinearVelocity(CGPoint(x: -250, y: 0), for: obstacle)
         collisionBehavior.addItem(obstacle)
     }
     
@@ -310,7 +311,7 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         if (Int(score.text!)! > highScore) {
             highScore = Int(score.text!)!
             scoreGO.frame = CGRect(x: 220, y:162, width:300, height:50)
-            scoreGO.text = "Final Score (New High Score!): " + score.text!
+            scoreGO.text = "Final Score: " + score.text! + " (New High Score!)"
             scoreGO.textColor = UIColor.green
         }
         
@@ -341,18 +342,9 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
         let increaseScore = 500 // can change
         let itemObject = item as! UIImageView
         
-        
-        
         // deduct score if boat has collided with an obstacle
         if obstacleArray.contains(itemObject) {
-            let obsSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "0311_008E", ofType: "wav")!)
-            do {
-                ap = try AVAudioPlayer(contentsOf:obsSound as URL)
-                ap!.prepareToPlay()
-                ap!.play()
-            } catch {
-                print("Cannot play the file")
-            }
+            playSound(fN: "0311_008E")
             collisionBehavior.removeItem(itemObject)
             var runShark: [UIImage]!
                 
@@ -368,26 +360,29 @@ class ViewController: UIViewController, subviewDelegate, UICollisionBehaviorDele
             if Int(score.text!)! > deductScore {
                 score.text = String(Int(score.text!)! - deductScore)
             }
-            // Change color of avatar
-            boat.tintColor = UIColor.red
         }
         
         // increase score if the boat has collided with a coin
         if coinsArray.contains(itemObject) {
-            let obsSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "0311_002A", ofType: "wav")!)
-            do {
-                ap = try AVAudioPlayer(contentsOf:obsSound as URL)
-                ap!.prepareToPlay()
-                ap!.play()
-            } catch {
-                print("Cannot play the file")
-            }
+            playSound(fN: "0311_002A")
             score.text = String(Int(score.text!)! + increaseScore)
             itemObject.image = nil
             coinsArray.remove(at: coinsArray.index(of: itemObject)!)
         }
         
     }
+    
+    func playSound(fN: String) {
+        let obsSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: fN, ofType: "wav")!)
+        do {
+            ap = try AVAudioPlayer(contentsOf:obsSound as URL)
+            ap!.prepareToPlay()
+            ap!.play()
+        } catch {
+            print("Cannot play the file")
+        }
+    }
+    
     
 
     // ------------------------- EXTRA Methods -------------------------------//
